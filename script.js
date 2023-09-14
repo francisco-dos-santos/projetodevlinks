@@ -17,12 +17,12 @@ function toggleMode() {
     const image = document.querySelector('#profile img');
     if (html.classList.contains('light')) {
         // se tiver a class light colocar outra imagem
-        image.setAttribute('src','./assets/avatar-light-miro.png');
-        image.setAttribute('alt','Foto de Francisco na mentoria da open-source Angola');
+        image.setAttribute('src','./assets/avatar-miro.png');
+        image.setAttribute('alt','foto de Francisco usando o preto');
     }else
     {
         // senão tiver a class manter a imagem 
-        image.setAttribute('src', './assets/avatar-miro.png');
-        image.setAttribute('alt','foto de Francisco usando o preto');
+        image.setAttribute('src', './assets/avatar-light-miro.png');
+        image.setAttribute('alt',' Foto de Francisco na mentoria da open-source Angola');
     }
 }
