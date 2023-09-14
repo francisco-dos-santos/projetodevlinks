@@ -1,0 +1,196 @@
+
+/* reset css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --text-color:#fff;
+    --stroke-color:rgba(255, 255,255, 0.5);
+    --surface-color:rgba(255, 255,255, 0.1);
+    --surface-hover:rgba(0,0,0,0.01);
+    --icone-hover:rgba(255,255,255,0.2);
+    --swicht-bg-url:url(./assets/moon-stars.svg);
+}
+
+.light
+{
+    --text-color:black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color:rgba(0,0,0,0.5);
+    --surface-color:rgba(0,0,0,0.05);
+    --surface-hover:rgba(0,0,0,0.01);
+    --icone-hover:rgba(0,0,0,0.2);
+    --swicht-bg-url:url(./assets/sun.svg);
+} 
+
+body *{
+    font-family: 'Inter', sans-serif;
+    color:var(--text-color);
+}
+body{
+    /* background:color image repeat position/size */
+    background: var(--bg-url) no-repeat top center/cover ;
+    min-height:100vh;
+}
+
+a{
+    text-decoration: none;
+}
+#container
+{
+    width:100%;
+    max-width: 588px;
+    /* height: 712px; altura deve ser fluida*/ 
+    margin:56px auto 10px;
+    padding: 0px 24px;
+}
+#profile {
+    text-align:center;
+    padding: 24px;
+}
+
+#profile img
+{
+    width: 112px;
+}
+#profile p
+{
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+/* swicht */
+#swicth 
+{
+    position: relative;
+    width: 64px;
+    margin:10px auto;
+    cursor: pointer;
+}
+#swicth button
+{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:none;
+    outline: none;
+    background:#fff var(--swicht-bg-url) no-repeat center;
+    position: absolute;
+    top:50%;
+    left:0;
+    z-index:1;
+    transform: translateY(-50%);
+    animation: slide-volta .2s;
+}
+#swicth button:hover
+{
+    outline:5px solid var(--icone-hover);
+}
+.light #swicth button
+{
+    right:0;
+    animation:slide-dentro 0.4s forwards;
+}
+#swicth span
+{
+    width:64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var( --stroke-color);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    display: block;
+    border-radius: 9999px;
+}
+/* links */
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding:16px 0;
+}
+
+ul li a{
+    text-decoration:none;
+    border: 1px solid var(--stroke-color);
+    font-weight: 500;
+    display:flex; 
+    justify-content:center;
+    align-items:center;
+    padding:16px 24px;
+    border-radius:8px;
+    background:var(--surface-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.2s;
+}
+ul li a:hover
+{
+    background:var(--surface-hover);
+    border:1.5px solid var(--text-color);
+}
+/* socias links */
+#social-link
+{
+    display:flex;
+    justify-content:center;
+    padding:16px 0;
+    font-size:24px;
+}
+#social-link a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+#social-link a:hover{
+    background:var(--icone-hover);
+}
+footer
+{
+    padding:24px 0 40px;
+    text-align:center;
+    font-size:14px;
+}
+
+/* Media queries  */
+@media(min-width:700px)
+{
+    :root{
+        --bg-url: url(./assets/bg-desktop.jpg);
+    }
+
+    .light{
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+
+}
+/* animations */
+
+@keyframes slide-dentro
+{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-volta
+{
+    from{
+        left: 50%;
+    }
+    to{
+        left:0;
+    }
+}
